@@ -4,25 +4,43 @@ import useSelect from '../hooks/useSelect';
 
 import styles from './Form.module.css';
 
-const Form = () => {
+const Form = ({ setCategory }) => {
 
+    const OPTIONS = [
+        { value: 'general', label: 'General' },
+        { value: 'bussines', label: 'Bussines' },
+        { value: 'entertaiment', label: 'Entertaiment' },
+        { value: 'health', label: 'Health' },
+        { value: 'science', label: 'Science' },
+        { value: 'sports', label: 'Sports' },
+        { value: 'technology', label: 'Technology' },
+    ];
 
-  const [category, SelectNews ] = useSelect();
+    const [category, SelectNews] = useSelect('general', OPTIONS);
+
+    const searchNews = e => {
+        e.preventDefault();
+
+        setCategory(category);
+
+    }
 
     return (
-        <div className={`row ${style.search}`}>
+        <div className={`row ${styles.search}`}>
 
             <div className="col s12 m8 offset-m2">
-                <form>
+                <form
+                    onSubmit={searchNews}
+                >
                     <h2 className={styles.heading}>Find News by category</h2>
 
-                    <SelectNews/>
+                    <SelectNews />
 
                     <div className="input-field col s12">
                         <input
-                        type="submit"
-                        className={`btn-large amber darken-2 ${sttyles['btn-block']}`}
-                        value="Search"
+                            type="submit"
+                            className={`btn-large amber darken-2 ${styles['btn-block']}`}
+                            value="Search"
                         />
                     </div>
                 </form>
