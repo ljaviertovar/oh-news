@@ -8,7 +8,7 @@ const useSelect = (stateInit, options) => {
 
         <select
         className="browser-default"
-        value={stateInit}
+        value={state}
         onChange={e => setState(e.target.value)}
         >
             <option value="">-- Select --</option>

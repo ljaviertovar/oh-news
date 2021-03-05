@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import useSelect from '../hooks/useSelect';
 
@@ -8,8 +9,8 @@ const Form = ({ setCategory }) => {
 
     const OPTIONS = [
         { value: 'general', label: 'General' },
-        { value: 'bussines', label: 'Bussines' },
-        { value: 'entertaiment', label: 'Entertaiment' },
+        { value: 'business', label: 'Bussines' },
+        { value: 'entertainment', label: 'Entertainment' },
         { value: 'health', label: 'Health' },
         { value: 'science', label: 'Science' },
         { value: 'sports', label: 'Sports' },
@@ -49,6 +50,10 @@ const Form = ({ setCategory }) => {
         </div>
     );
 
+}
+
+Form.propTypes = {
+    setCategory: PropTypes.func.isRequired
 }
 
 export default Form;
